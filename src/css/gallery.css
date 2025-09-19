@@ -27,7 +27,7 @@ button {
   width: 350px;
   border-radius: 4px;
   border-color: #4e75ff;
-  transition: 1200ms ease-in;
+  transition: 400ms ease-in;
 }
 button:hover {
   background-color: aqua;

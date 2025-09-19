@@ -32,9 +32,3 @@ img {
   max-width: 100%;
   height: auto;
 }
-
-html,
-body {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  background-attachment: fixed;
-}

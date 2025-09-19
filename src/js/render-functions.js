@@ -15,15 +15,15 @@ export function createGallery(images) {
   const markup = images
     .map(
       img => `
-<li class="gallery__item">
-<a class="gallery__link" href="${img.largeImageURL}" width="300">
-<img class="gallery__image" src="${img.webformatURL}" alt="${img.tags}" loading="lazy" />
+<li class="gallery-item">
+<a class="gallery-link" href="${img.largeImageURL}" >
+<img class="gallery-image" src="${img.webformatURL}" alt="${img.tags}" loading="lazy" width="300" />
 </a>
 <div class="info">
-<p class="info-item"><b>Likes</b><span>${img.likes}</span></p>
-<p class="info-item"><b>Views</b><span>${img.views}</span></p>
-<p class="info-item"><b>Comments</b><span>${img.comments}</span></p>
-<p class="info-item"><b>Downloads</b><span>${img.downloads}</span></p>
+<p class="info-item"><b>Likes</b><span class="info-item-current">${img.likes}</span></p>
+<p class="info-item"><b>Views</b><span class="info-item-current">${img.views}</span></p>
+<p class="info-item"><b>Comments</b><span class="info-item-current">${img.comments}</span></p>
+<p class="info-item"><b>Downloads</b><span class="info-item-current">${img.downloads}</span></p>
 </div>
 </li>`
     )

@@ -1,13 +1,13 @@
-import{a as f,S as p,i}from"./assets/vendor-D8hBcPQM.js";(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))t(r);new MutationObserver(r=>{for(const s of r)if(s.type==="childList")for(const a of s.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&t(a)}).observe(document,{childList:!0,subtree:!0});function n(r){const s={};return r.integrity&&(s.integrity=r.integrity),r.referrerPolicy&&(s.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?s.credentials="include":r.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function t(r){if(r.ep)return;r.ep=!0;const s=n(r);fetch(r.href,s)}})();const d="https://pixabay.com/api/",m="52352644-c897e22e6be43ef28cf6cdead";function g(e){return f.get(d,{params:{key:m,q:e,image_type:"photo",orientation:"horizontal",safesearch:!0}}).then(o=>o.data)}const c=".gallery",l=".loader",y=new p(`${c} a`,{captionsData:"alt",captionDelay:250});function h(e){const o=document.querySelector(".gallery");if(!o)return;const n=e.map(t=>`
-<li class="gallery__item">
-<a class="gallery__link" href="${t.largeImageURL}" width="300">
-<img class="gallery__image" src="${t.webformatURL}" alt="${t.tags}" loading="lazy" />
+import{a as f,S as m,i}from"./assets/vendor-D8hBcPQM.js";(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))t(r);new MutationObserver(r=>{for(const s of r)if(s.type==="childList")for(const a of s.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&t(a)}).observe(document,{childList:!0,subtree:!0});function n(r){const s={};return r.integrity&&(s.integrity=r.integrity),r.referrerPolicy&&(s.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?s.credentials="include":r.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function t(r){if(r.ep)return;r.ep=!0;const s=n(r);fetch(r.href,s)}})();const p="https://pixabay.com/api/",d="52352644-c897e22e6be43ef28cf6cdead";function g(e){return f.get(p,{params:{key:d,q:e,image_type:"photo",orientation:"horizontal",safesearch:!0}}).then(o=>o.data)}const c=".gallery",l=".loader",y=new m(`${c} a`,{captionsData:"alt",captionDelay:250});function h(e){const o=document.querySelector(".gallery");if(!o)return;const n=e.map(t=>`
+<li class="gallery-item">
+<a class="gallery-link" href="${t.largeImageURL}" >
+<img class="gallery-image" src="${t.webformatURL}" alt="${t.tags}" loading="lazy" width="300" />
 </a>
 <div class="info">
-<p class="info-item"><b>Likes</b><span>${t.likes}</span></p>
-<p class="info-item"><b>Views</b><span>${t.views}</span></p>
-<p class="info-item"><b>Comments</b><span>${t.comments}</span></p>
-<p class="info-item"><b>Downloads</b><span>${t.downloads}</span></p>
+<p class="info-item"><b>Likes</b><span class="info-item-current">${t.likes}</span></p>
+<p class="info-item"><b>Views</b><span class="info-item-current">${t.views}</span></p>
+<p class="info-item"><b>Comments</b><span class="info-item-current">${t.comments}</span></p>
+<p class="info-item"><b>Downloads</b><span class="info-item-current">${t.downloads}</span></p>
 </div>
 </li>`).join("");o.insertAdjacentHTML("beforeend",n),y.refresh()}function b(){const e=document.querySelector(c);e&&(e.innerHTML="")}function L(){const e=document.querySelector(l);e&&e.classList.remove("is-active")}function S(){const e=document.querySelector(l);e&&e.classList.add("is-active")}const u=document.querySelector(".form"),w=u.querySelector('[name="search-text"]');u.addEventListener("submit",v);function v(e){e.preventDefault();const o=w.value.trim();if(!o){i.error({title:"Error",message:"Please enter a search term.",position:"topRight"});return}b(),L(),g(o).then(n=>{const t=n.hits;if(!t||t.length===0){i.info({title:"No results",message:"Sorry, there are no images matching your search query. Please try again!",position:"topRight"});return}h(t),i.success({title:"Success",message:`Found ${t.length} images for "${o}".`,position:"topRight"})}).catch(n=>{console.error(n),i.error({title:"Error",message:"Something went wrong while fetching images.",position:"topRight"})}).finally(()=>{S()})}
 //# sourceMappingURL=index.js.map

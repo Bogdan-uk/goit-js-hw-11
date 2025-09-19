@@ -25,7 +25,7 @@ function onSearch(event) {
     });
     return;
   }
-
+  form.reset();
   clearGallery();
   showLoader();
 
